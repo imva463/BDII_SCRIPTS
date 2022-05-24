@@ -3,7 +3,7 @@
 -- ÁREA MANUFACTURA
 ---------------------------------------------------------------------------
 
--- En los atributos "id's" si se ponen como tipo SERIAL son autoincrementales
+-- En los atributos "id's" si se ponen como tipo SERIAL son autoincrementaleS
 -- Pero en PGAdmin marcó error a la hora de querer hacer un insert 
 -- el atributo "Cantidad" se puso como INT por suponer que no serán más de 250
 
@@ -32,13 +32,13 @@ CREATE TABLE IF NOT EXISTS solicitud
 CREATE TABLE IF NOT EXISTS manufactura
 (
 	id_manufactura 		INTEGER 	NOT NULL, 
-	id_direccion 		INTEGER		NOT NULL,
+	id_direccion 		SERIAL		NOT NULL,
 	tipo 				INTEGER,
 	fecha_inicio 		DATE		NOT NULL,
 	fecha_termino 		DATE,
 	id_outsourcing 		INTEGER 	NOT NULL,
-	costo_obra 			DECIMAL,
-	costo_total 		DECIMAL, 
+	costo_obra 			NUMERIC,
+	costo_total 		NUMERIC, 
 	status 				INTEGER,
 
 	PRIMARY KEY (id_manufactura),
@@ -65,7 +65,7 @@ CREATE TABLE IF NOT EXISTS outsourcing
 (
 	id_outsourcing 		INTEGER 	NOT NULL,
 	empresa 			VARCHAR(50), 
-	costo 				DECIMAL 	NOT NULL,
+	costo 				NUMERIC 	NOT NULL,
 	contrato 			PATH, "/Documentos/contrato0234.pdf"
 
 	PRIMARY KEY(id_outsourcing)
@@ -82,7 +82,7 @@ CREATE TABLE IF NOT EXISTS mantenimiento
 	id_defecto 			INTEGER,
 	fecha_inicio 		DATE,
 	fecha_termino 		DATE,
-	costo 				DECIMAL,
+	costo 				NUMERIC,
 	status 				INTEGER,
 
 	PRIMARY KEY (id_mantenimiento),
